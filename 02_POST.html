@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST</title>
+</head>
+<body>
+    <a>t1:</a><input id="t1" type="text">
+    <a>t2:</a><input id="t2" type="text">
+    <a>t3:</a><input id="t3" type="text">
+    <button>POST</button>
+    <script>
+
+        var btn = document.getElementsByTagName("button")[0];
+        var xhr = new XMLHttpRequest();
+
+        btn.onclick = function () {
+
+            var data={t1 : document.getElementById("t1").value,
+                t2 : document.getElementById("t2").value,
+                t3 : document.getElementById("t3").value}
+
+            xhr.open('POST','json/tsconfig.json', true);
+            xhr.send(JSON.stringify(data));
+            xhr.onreadystatechange = function (e) {
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    console.log(e.response);
+                }
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

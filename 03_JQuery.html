@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery-Ajax</title>
+</head>
+<body>
+    <a>t1:</a><input id="t1" type="text">
+    <a>t2:</a><input id="t2" type="text">
+    <a>t3:</a><input id="t3" type="text">
+    <button>POST</button>
+    <script src="jquery.min.js"></script>
+    <script>
+
+        $('button').click(function () {
+            var data = {
+                t1:$("#t1").val(),
+                t2:$("#t2").val(),
+                t3:$("#t3").val()
+            };
+
+            var para = {
+                type: 'GET',
+                url:'json/tsconfig.json',
+                dataType:'json',
+                data:data,
+                success:function (data) {
+                    console.log(data);
+                }
+            };
+
+            $.ajax(para);
+
+        });
+
+
+    </script>
+</body>
+</html>
